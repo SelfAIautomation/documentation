@@ -2,5 +2,6 @@ node_modules/
 out/
 dist/
 .remotion/
+public/audio/*.wav
 public/audio/*.mp3
 .env

@@ -19,7 +19,7 @@ const getSectionColor = (section: number): string => {
 // Check if audio file exists for a slide (resolved at render time)
 const SlideAudio: React.FC<{slideId: string}> = ({slideId}) => {
   try {
-    const src = staticFile(`audio/${slideId}.mp3`);
+    const src = staticFile(`audio/${slideId}.wav`);
     return <Audio src={src} volume={1} />;
   } catch {
     return null;
