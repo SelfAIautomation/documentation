@@ -1,8 +1,7 @@
 import React from 'react';
 import {Audio, Series, staticFile} from 'remotion';
-import * as fs from 'fs';
-import * as path from 'path';
 import {SLIDES} from './data/scenes';
+import {AVAILABLE_AUDIO} from './data/audio-manifest';
 import {TitleSlide} from './components/TitleSlide';
 import {SectionHeader} from './components/SectionHeader';
 import {BulletSlide} from './components/BulletSlide';
@@ -10,20 +9,7 @@ import {CodeSlide} from './components/CodeSlide';
 import {TableSlide} from './components/TableSlide';
 import {TwoColumnSlide} from './components/TwoColumnSlide';
 
-// Detect which audio files exist at bundle time
-const AUDIO_DIR = path.join(process.cwd(), 'public', 'audio');
-const availableAudio = new Set<string>();
-try {
-  if (fs.existsSync(AUDIO_DIR)) {
-    for (const file of fs.readdirSync(AUDIO_DIR)) {
-      if (file.endsWith('.wav')) {
-        availableAudio.add(file.replace('.wav', ''));
-      }
-    }
-  }
-} catch {
-  // No audio directory - render without audio
-}
+const audioSet = new Set(AVAILABLE_AUDIO);
 
 // Calculate the accent color for a section based on its slides
 const getSectionColor = (section: number): string => {
@@ -35,7 +21,7 @@ const getSectionColor = (section: number): string => {
 
 // Play audio for a slide if the audio file exists
 const SlideAudio: React.FC<{slideId: string}> = ({slideId}) => {
-  if (!availableAudio.has(slideId)) return null;
+  if (!audioSet.has(slideId)) return null;
   const src = staticFile(`audio/${slideId}.wav`);
   return <Audio src={src} volume={1} />;
 };
