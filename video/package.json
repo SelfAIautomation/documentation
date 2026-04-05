@@ -5,7 +5,6 @@
   "scripts": {
     "preview": "remotion preview src/index.ts",
     "render": "remotion render src/index.ts MainVideo out/video.mp4",
-    "render:with-audio": "ENABLE_AUDIO=true remotion render src/index.ts MainVideo out/video.mp4",
     "render:still": "remotion still src/index.ts MainVideo out/thumbnail.png",
     "generate-audio": "npx tsx scripts/generate-audio.ts"
   },
