@@ -1,6 +1,6 @@
 import React from 'react';
-import {Series} from 'remotion';
-import {SLIDES, TOTAL_SECTIONS} from './data/scenes';
+import {Audio, Series, staticFile} from 'remotion';
+import {SLIDES} from './data/scenes';
 import {TitleSlide} from './components/TitleSlide';
 import {SectionHeader} from './components/SectionHeader';
 import {BulletSlide} from './components/BulletSlide';
@@ -14,6 +14,16 @@ const getSectionColor = (section: number): string => {
     (s) => s.section === section && s.type === 'sectionHeader',
   );
   return sectionSlide?.style?.accentColor ?? '#3b82f6';
+};
+
+// Check if audio file exists for a slide (resolved at render time)
+const SlideAudio: React.FC<{slideId: string}> = ({slideId}) => {
+  try {
+    const src = staticFile(`audio/${slideId}.mp3`);
+    return <Audio src={src} volume={1} />;
+  } catch {
+    return null;
+  }
 };
 
 export const MainVideo: React.FC = () => {
@@ -39,6 +49,7 @@ export const MainVideo: React.FC = () => {
             key={slide.id}
             durationInFrames={slide.durationInFrames}
           >
+            {slide.content.narration && <SlideAudio slideId={slide.id} />}
             {slide.type === 'title' && (
               <TitleSlide
                 title={slide.content.title!}
