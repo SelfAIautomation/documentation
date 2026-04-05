@@ -1,20 +1,26 @@
 import React from 'react';
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
 import {THEME} from '../data/theme';
+import {AVAILABLE_IMAGES} from '../data/image-manifest';
 import {Background} from './Background';
 import {ProgressBar} from './ProgressBar';
+
+const imageSet = new Set(AVAILABLE_IMAGES);
 
 interface SectionHeaderProps {
   title: string;
   subtitle?: string;
   sectionNumber: number;
   accentColor?: string;
+  slideId?: string;
   globalFrame: number;
 }
 
@@ -23,6 +29,7 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   subtitle,
   sectionNumber,
   accentColor = THEME.colors.primary,
+  slideId,
   globalFrame,
 }) => {
   const frame = useCurrentFrame();
@@ -46,7 +53,28 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
 
   return (
     <AbsoluteFill>
-      <Background />
+      {slideId && imageSet.has(slideId) ? (
+        <>
+          <Img
+            src={staticFile(`images/${slideId}.png`)}
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: 'rgba(15, 23, 42, 0.75)',
+            }}
+          />
+        </>
+      ) : (
+        <Background />
+      )}
       <AbsoluteFill
         style={{
           display: 'flex',

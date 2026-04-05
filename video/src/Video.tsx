@@ -54,6 +54,7 @@ export const MainVideo: React.FC = () => {
               <TitleSlide
                 title={slide.content.title!}
                 subtitle={slide.content.subtitle}
+                slideId={slide.id}
                 globalFrame={globalFrame}
               />
             )}
@@ -63,6 +64,7 @@ export const MainVideo: React.FC = () => {
                 subtitle={slide.content.subtitle}
                 sectionNumber={slide.section}
                 accentColor={accentColor}
+                slideId={slide.id}
                 globalFrame={globalFrame}
               />
             )}
@@ -71,6 +73,7 @@ export const MainVideo: React.FC = () => {
                 title={slide.content.title!}
                 bullets={slide.content.bullets!}
                 accentColor={accentColor}
+                slideId={slide.id}
                 globalFrame={globalFrame}
                 slideNumber={index + 1}
                 totalSlides={totalSlides}
@@ -82,6 +85,7 @@ export const MainVideo: React.FC = () => {
                 code={slide.content.code!.source}
                 language={slide.content.code!.language}
                 accentColor={accentColor}
+                slideId={slide.id}
                 globalFrame={globalFrame}
                 slideNumber={index + 1}
                 totalSlides={totalSlides}
@@ -93,6 +97,7 @@ export const MainVideo: React.FC = () => {
                 headers={slide.content.table!.headers}
                 rows={slide.content.table!.rows}
                 accentColor={accentColor}
+                slideId={slide.id}
                 globalFrame={globalFrame}
                 slideNumber={index + 1}
                 totalSlides={totalSlides}
@@ -104,6 +109,7 @@ export const MainVideo: React.FC = () => {
                 leftColumn={slide.content.leftColumn!}
                 rightColumn={slide.content.rightColumn!}
                 accentColor={accentColor}
+                slideId={slide.id}
                 globalFrame={globalFrame}
                 slideNumber={index + 1}
                 totalSlides={totalSlides}

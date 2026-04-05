@@ -13,6 +13,7 @@ interface TwoColumnSlideProps {
   leftColumn: ColumnData;
   rightColumn: ColumnData;
   accentColor?: string;
+  slideId?: string;
   globalFrame: number;
   slideNumber: number;
   totalSlides: number;
@@ -23,6 +24,7 @@ export const TwoColumnSlide: React.FC<TwoColumnSlideProps> = ({
   leftColumn,
   rightColumn,
   accentColor = THEME.colors.primary,
+  slideId,
   globalFrame,
   slideNumber,
   totalSlides,
@@ -111,6 +113,7 @@ export const TwoColumnSlide: React.FC<TwoColumnSlideProps> = ({
   return (
     <SlideLayout
       globalFrame={globalFrame}
+      slideId={slideId}
       slideNumber={slideNumber}
       totalSlides={totalSlides}
     >

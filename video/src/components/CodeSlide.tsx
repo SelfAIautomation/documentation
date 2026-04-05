@@ -9,6 +9,7 @@ interface CodeSlideProps {
   code: string;
   language: string;
   accentColor?: string;
+  slideId?: string;
   globalFrame: number;
   slideNumber: number;
   totalSlides: number;
@@ -19,6 +20,7 @@ export const CodeSlide: React.FC<CodeSlideProps> = ({
   code,
   language,
   accentColor = THEME.colors.primary,
+  slideId,
   globalFrame,
   slideNumber,
   totalSlides,
@@ -38,6 +40,7 @@ export const CodeSlide: React.FC<CodeSlideProps> = ({
   return (
     <SlideLayout
       globalFrame={globalFrame}
+      slideId={slideId}
       slideNumber={slideNumber}
       totalSlides={totalSlides}
     >

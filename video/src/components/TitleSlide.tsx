@@ -1,24 +1,31 @@
 import React from 'react';
 import {
   AbsoluteFill,
+  Img,
   interpolate,
   spring,
+  staticFile,
   useCurrentFrame,
   useVideoConfig,
 } from 'remotion';
 import {THEME} from '../data/theme';
+import {AVAILABLE_IMAGES} from '../data/image-manifest';
 import {Background} from './Background';
 import {ProgressBar} from './ProgressBar';
+
+const imageSet = new Set(AVAILABLE_IMAGES);
 
 interface TitleSlideProps {
   title: string;
   subtitle?: string;
+  slideId?: string;
   globalFrame: number;
 }
 
 export const TitleSlide: React.FC<TitleSlideProps> = ({
   title,
   subtitle,
+  slideId,
   globalFrame,
 }) => {
   const frame = useCurrentFrame();
@@ -39,7 +46,28 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
 
   return (
     <AbsoluteFill>
-      <Background />
+      {slideId && imageSet.has(slideId) ? (
+        <>
+          <Img
+            src={staticFile(`images/${slideId}.png`)}
+            style={{
+              position: 'absolute',
+              width: '100%',
+              height: '100%',
+              objectFit: 'cover',
+            }}
+          />
+          <div
+            style={{
+              position: 'absolute',
+              inset: 0,
+              backgroundColor: 'rgba(15, 23, 42, 0.75)',
+            }}
+          />
+        </>
+      ) : (
+        <Background />
+      )}
       <AbsoluteFill
         style={{
           display: 'flex',

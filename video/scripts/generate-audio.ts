@@ -12,8 +12,8 @@ const SPEAKER_A_UUID =
   process.env.SPEAKER_A_UUID || '3c37646f-3881-5374-2a83-149267990abc'; // つくよみちゃん
 const SPEAKER_A_STYLE = parseInt(process.env.SPEAKER_A_STYLE || '0', 10);
 const SPEAKER_B_UUID =
-  process.env.SPEAKER_B_UUID || '3c37646f-3881-5374-2a83-149267990abc'; // つくよみちゃん (別スタイル)
-const SPEAKER_B_STYLE = parseInt(process.env.SPEAKER_B_STYLE || '6', 10);
+  process.env.SPEAKER_B_UUID || 'd219f5ab-a50b-4d99-a26a-a9fc213e9100'; // AI声優-青葉
+const SPEAKER_B_STYLE = parseInt(process.env.SPEAKER_B_STYLE || '60', 10);
 
 const SPEED_SCALE = parseFloat(process.env.SPEED_SCALE || '1.0');
 const OUTPUT_DIR = path.join(__dirname, '..', 'public', 'audio');

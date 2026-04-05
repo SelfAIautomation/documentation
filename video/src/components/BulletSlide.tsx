@@ -7,6 +7,7 @@ interface BulletSlideProps {
   title: string;
   bullets: string[];
   accentColor?: string;
+  slideId?: string;
   globalFrame: number;
   slideNumber: number;
   totalSlides: number;
@@ -16,6 +17,7 @@ export const BulletSlide: React.FC<BulletSlideProps> = ({
   title,
   bullets,
   accentColor = THEME.colors.primary,
+  slideId,
   globalFrame,
   slideNumber,
   totalSlides,
@@ -30,6 +32,7 @@ export const BulletSlide: React.FC<BulletSlideProps> = ({
   return (
     <SlideLayout
       globalFrame={globalFrame}
+      slideId={slideId}
       slideNumber={slideNumber}
       totalSlides={totalSlides}
     >

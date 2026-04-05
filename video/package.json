@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "preview": "remotion preview src/index.ts",
-    "render": "npx tsx scripts/scan-audio.ts && remotion render src/index.ts MainVideo out/video.mp4",
-    "render:still": "remotion still src/index.ts MainVideo out/thumbnail.png",
-    "generate-audio": "npx tsx scripts/generate-audio.ts"
+    "preview": "npx tsx scripts/scan-images.ts && npx tsx scripts/scan-audio.ts && remotion preview src/index.ts",
+    "step:1-slides": "echo 'Step 1: Review slides in src/data/scenes.ts — edit content, narration, durations as needed.'",
+    "step:2-images": "npx tsx scripts/generate-images.ts && npx tsx scripts/scan-images.ts",
+    "step:3-audio": "npx tsx scripts/generate-audio.ts && npx tsx scripts/scan-audio.ts",
+    "step:4-render": "npx tsx scripts/scan-images.ts && npx tsx scripts/scan-audio.ts && remotion render src/index.ts MainVideo out/video.mp4",
+    "render": "npx tsx scripts/scan-images.ts && npx tsx scripts/scan-audio.ts && remotion render src/index.ts MainVideo out/video.mp4",
+    "render:still": "remotion still src/index.ts MainVideo out/thumbnail.png"
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

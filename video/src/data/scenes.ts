@@ -41,6 +41,7 @@ export interface Slide {
   section: number;
   durationInFrames: number;
   content: SlideContent;
+  imagePrompt?: string; // Gemini API image generation prompt
   style?: {
     accentColor?: string;
   };

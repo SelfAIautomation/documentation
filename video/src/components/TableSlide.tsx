@@ -8,6 +8,7 @@ interface TableSlideProps {
   headers: string[];
   rows: string[][];
   accentColor?: string;
+  slideId?: string;
   globalFrame: number;
   slideNumber: number;
   totalSlides: number;
@@ -18,6 +19,7 @@ export const TableSlide: React.FC<TableSlideProps> = ({
   headers,
   rows,
   accentColor = THEME.colors.primary,
+  slideId,
   globalFrame,
   slideNumber,
   totalSlides,
@@ -35,6 +37,7 @@ export const TableSlide: React.FC<TableSlideProps> = ({
   return (
     <SlideLayout
       globalFrame={globalFrame}
+      slideId={slideId}
       slideNumber={slideNumber}
       totalSlides={totalSlides}
     >
