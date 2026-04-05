@@ -1,5 +1,5 @@
 import React from 'react';
-import {Audio, Series, staticFile} from 'remotion';
+import {Audio, getRemotionEnvironment, Series, staticFile} from 'remotion';
 import {SLIDES} from './data/scenes';
 import {TitleSlide} from './components/TitleSlide';
 import {SectionHeader} from './components/SectionHeader';
@@ -7,6 +7,10 @@ import {BulletSlide} from './components/BulletSlide';
 import {CodeSlide} from './components/CodeSlide';
 import {TableSlide} from './components/TableSlide';
 import {TwoColumnSlide} from './components/TwoColumnSlide';
+
+// Enable audio via ENABLE_AUDIO=true environment variable or input prop
+// When false, video renders without audio (no error if files are missing)
+const ENABLE_AUDIO = process.env.ENABLE_AUDIO === 'true';
 
 // Calculate the accent color for a section based on its slides
 const getSectionColor = (section: number): string => {
@@ -16,14 +20,11 @@ const getSectionColor = (section: number): string => {
   return sectionSlide?.style?.accentColor ?? '#3b82f6';
 };
 
-// Check if audio file exists for a slide (resolved at render time)
+// Play audio for a slide if audio is enabled
 const SlideAudio: React.FC<{slideId: string}> = ({slideId}) => {
-  try {
-    const src = staticFile(`audio/${slideId}.wav`);
-    return <Audio src={src} volume={1} />;
-  } catch {
-    return null;
-  }
+  if (!ENABLE_AUDIO) return null;
+  const src = staticFile(`audio/${slideId}.wav`);
+  return <Audio src={src} volume={1} />;
 };
 
 export const MainVideo: React.FC = () => {
