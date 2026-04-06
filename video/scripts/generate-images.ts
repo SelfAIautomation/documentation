@@ -14,11 +14,11 @@ const MODEL = 'gemini-2.0-flash-exp';
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL}:generateContent?key=${API_KEY}`;
 
 // ---- Load slide data ----
-function loadSlides(): Array<{id: string; title: string; type: string; section: number}> {
+function loadSlides(): Array<{id: string; title: string; type: string; section: number; imagePrompt?: string}> {
   const scenesPath = path.join(__dirname, '..', 'src', 'data', 'scenes.ts');
   const content = fs.readFileSync(scenesPath, 'utf8');
 
-  const slides: Array<{id: string; title: string; type: string; section: number}> = [];
+  const slides: Array<{id: string; title: string; type: string; section: number; imagePrompt?: string}> = [];
   const regex = /id:\s*'([^']+)'[\s\S]*?type:\s*'([^']+)'[\s\S]*?section:\s*(\d+)[\s\S]*?title:\s*'([^']*(?:\\.[^']*)*)'/g;
   let match;
   while ((match = regex.exec(content)) !== null) {
@@ -29,6 +29,17 @@ function loadSlides(): Array<{id: string; title: string; type: string; section: 
       title: match[4].replace(/\\n/g, ' '),
     });
   }
+
+  // Extract imagePrompt fields using a separate pass
+  const imagePromptRegex = /id:\s*'([^']+)'[\s\S]*?imagePrompt:\s*`([^`]+)`/g;
+  let ipMatch;
+  while ((ipMatch = imagePromptRegex.exec(content)) !== null) {
+    const slide = slides.find((s) => s.id === ipMatch[1]);
+    if (slide) {
+      slide.imagePrompt = ipMatch[2].trim();
+    }
+  }
+
   return slides;
 }
 
@@ -46,9 +57,16 @@ const SECTION_THEMES: Record<number, string> = {
   9: 'human and AI hands shaking, future of collaborative development',
 };
 
-function buildPrompt(slide: {id: string; title: string; type: string; section: number}): string {
+function buildPrompt(slide: {id: string; title: string; type: string; section: number; imagePrompt?: string}): string {
+  const BASE_STYLE =
+    'Style: dark gradient background (deep navy/slate), subtle and elegant, no text, no UI elements, suitable as a background for overlaid text. 16:9 aspect ratio, 1920x1080 resolution. Modern, clean, minimalist design.';
+
+  if (slide.imagePrompt) {
+    return `Generate a professional presentation slide background image. Theme: ${slide.imagePrompt}. ${BASE_STYLE}`;
+  }
+
   const theme = SECTION_THEMES[slide.section] || 'abstract technology background';
-  return `Generate a professional presentation slide background image. Theme: ${theme}. Style: dark gradient background, subtle and elegant, no text, no UI elements, suitable as a background for overlaid text. 16:9 aspect ratio, 1920x1080 resolution. Modern, clean, minimalist design.`;
+  return `Generate a professional presentation slide background image. Theme: ${theme}. ${BASE_STYLE}`;
 }
 
 // ---- Generate image via Gemini API ----

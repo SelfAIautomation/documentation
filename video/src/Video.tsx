@@ -8,6 +8,7 @@ import {BulletSlide} from './components/BulletSlide';
 import {CodeSlide} from './components/CodeSlide';
 import {TableSlide} from './components/TableSlide';
 import {TwoColumnSlide} from './components/TwoColumnSlide';
+import {QuoteSlide} from './components/QuoteSlide';
 
 const audioSet = new Set(AVAILABLE_AUDIO);
 
@@ -108,6 +109,18 @@ export const MainVideo: React.FC = () => {
                 title={slide.content.title!}
                 leftColumn={slide.content.leftColumn!}
                 rightColumn={slide.content.rightColumn!}
+                accentColor={accentColor}
+                slideId={slide.id}
+                globalFrame={globalFrame}
+                slideNumber={index + 1}
+                totalSlides={totalSlides}
+              />
+            )}
+            {slide.type === 'quote' && (
+              <QuoteSlide
+                quote={slide.content.quote!}
+                author={slide.content.author}
+                title={slide.content.title}
                 accentColor={accentColor}
                 slideId={slide.id}
                 globalFrame={globalFrame}

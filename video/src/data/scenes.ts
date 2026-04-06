@@ -62,12 +62,14 @@ export const SLIDES: Slide[] = [
         {speaker: 'B', text: 'よろしくお願いします！AIがコードを自律的に書く時代、どうやって制御するかがポイントですよね。'},
       ],
     },
+    imagePrompt: `futuristic AI-powered development workspace, glowing terminal screens with cascading blue code streams, neural network constellation in deep space background, dramatic blue-purple-cyan gradient, cinematic atmosphere`,
   },
   {
     id: 'intro-overview',
     type: 'bullets',
     section: 0,
     durationInFrames: 1200, // 40s
+    imagePrompt: `abstract overview visualization, glowing interconnected nodes representing AI, terminals, documents and agents, soft radial web structure on dark background, blue and teal color scheme`,
     content: {
       title: '本動画の概要',
       bullets: [
@@ -92,6 +94,7 @@ export const SLIDES: Slide[] = [
     type: 'sectionHeader',
     section: 1,
     durationInFrames: 300, // 10s
+    imagePrompt: `glowing layered markdown documents arranged in a pyramid hierarchy, translucent file layers with blue illumination, architectural blueprint aesthetic on dark slate background`,
     content: {
       title: 'CLAUDE.mdと階層構造',
       subtitle: 'プロジェクトメモリの設計論',
@@ -106,6 +109,7 @@ export const SLIDES: Slide[] = [
     type: 'bullets',
     section: 1,
     durationInFrames: 1200, // 40s
+    imagePrompt: `digital memory fading visualization, fragmented data shards dissolving into void, broken connection lines between session bubbles, melancholic blue and grey tones on dark background`,
     content: {
       title: 'エージェントが直面する課題',
       bullets: [
@@ -127,6 +131,7 @@ export const SLIDES: Slide[] = [
     type: 'table',
     section: 1,
     durationInFrames: 1350, // 45s
+    imagePrompt: `three-tier file system tree diagram with glowing nodes at global, project and subdirectory levels, layered architecture visualization, blue hierarchy lines on dark technical background`,
     content: {
       title: '指示ファイルの階層と優先順位',
       table: {
@@ -150,6 +155,7 @@ export const SLIDES: Slide[] = [
     type: 'bullets',
     section: 1,
     durationInFrames: 1200, // 40s
+    imagePrompt: `terminal screen showing automated repository scanning with green data streams, document being constructed line by line, matrix-style analysis effect on dark background, emerald green and blue accents`,
     content: {
       title: '指示書の初期化と反復的洗練',
       bullets: [
@@ -173,6 +179,7 @@ export const SLIDES: Slide[] = [
     type: 'sectionHeader',
     section: 2,
     durationInFrames: 300, // 10s
+    imagePrompt: `engineering blueprint with technical annotation marks and specification lines on dark surface, glowing purple design elements, precise architectural drafting aesthetic, clean geometric forms`,
     content: {
       title: '指示書の設計論',
       subtitle: 'CLAUDE.mdに含めるべき技術的構成要素',
@@ -187,6 +194,7 @@ export const SLIDES: Slide[] = [
     type: 'bullets',
     section: 2,
     durationInFrames: 1200, // 40s
+    imagePrompt: `four glowing construction blocks assembling into a structured document, each block representing a component with soft purple illumination, modular building visualization on dark background`,
     content: {
       title: '効果的な指示書の構成要素',
       bullets: [
@@ -208,6 +216,7 @@ export const SLIDES: Slide[] = [
     type: 'table',
     section: 2,
     durationInFrames: 1350, // 45s
+    imagePrompt: `code style guide visualization, aligned and formatted code blocks with consistent indentation patterns glowing in purple-blue, rule enforcement aesthetic on dark background`,
     content: {
       title: 'エージェント向けコーディング制約の具体例',
       table: {
@@ -234,6 +243,7 @@ export const SLIDES: Slide[] = [
     type: 'sectionHeader',
     section: 3,
     durationInFrames: 300, // 10s
+    imagePrompt: `modular skill blocks connecting like glowing puzzle pieces in a digital space, emerald green and teal illuminated modules forming a network, clean geometric connections on dark background`,
     content: {
       title: 'Skillsシステム',
       subtitle: '専門知識のパッケージ化と動的拡張',
@@ -248,6 +258,7 @@ export const SLIDES: Slide[] = [
     type: 'bullets',
     section: 3,
     durationInFrames: 1200, // 40s
+    imagePrompt: `three-layer data loading waterfall visualization, tokens flowing through hierarchical stages with green-teal glow, efficient data pipeline aesthetic on dark background`,
     content: {
       title: 'SKILL.mdの三段階読み込みモデル',
       bullets: [
@@ -269,6 +280,7 @@ export const SLIDES: Slide[] = [
     type: 'table',
     section: 3,
     durationInFrames: 1200, // 40s
+    imagePrompt: `YAML-style structured metadata fields glowing in green-teal on dark surface, database schema aesthetic, key-value pairs arranged in clean grid pattern, technical documentation visualization`,
     content: {
       title: 'スキルメタデータの構成フィールド',
       table: {
@@ -296,6 +308,7 @@ export const SLIDES: Slide[] = [
     type: 'sectionHeader',
     section: 4,
     durationInFrames: 300, // 10s
+    imagePrompt: `automated assembly line with glowing quality gate checkpoints, amber-gold illuminated pipeline stages, code flowing through validation barriers, industrial precision aesthetic on dark background`,
     content: {
       title: 'Hooksシステム',
       subtitle: '決定論的制御と品質ゲートの実装',
@@ -310,6 +323,7 @@ export const SLIDES: Slide[] = [
     type: 'table',
     section: 4,
     durationInFrames: 1350, // 45s
+    imagePrompt: `event-driven architecture timeline visualization, trigger points with amber glow and callback arrows connecting lifecycle stages, horizontal flow of events on dark background`,
     content: {
       title: '主要なHookイベントと活用例',
       table: {
@@ -335,6 +349,7 @@ export const SLIDES: Slide[] = [
     type: 'codeBlock',
     section: 4,
     durationInFrames: 1050, // 35s
+    imagePrompt: `code transformation visualization, messy code on left transforming into perfectly formatted code on right with amber arrows, before-and-after aesthetic, clean dark technical background`,
     content: {
       title: '自動整形Hookの実装パターン',
       code: {
@@ -364,6 +379,7 @@ export const SLIDES: Slide[] = [
     type: 'sectionHeader',
     section: 5,
     durationInFrames: 300, // 10s
+    imagePrompt: `film frame sequence showing React component frames rendering in sequence, cinematic video production aesthetic with red accents, frame numbers and timeline ruler, dark background`,
     content: {
       title: 'Remotionフレームワーク最適化',
       subtitle: 'フレームベースのアニメーション規約',
@@ -378,6 +394,7 @@ export const SLIDES: Slide[] = [
     type: 'twoColumn',
     section: 5,
     durationInFrames: 1200, // 40s
+    imagePrompt: `split-screen design contrast, left side showing red prohibited patterns fading out, right side showing green recommended patterns glowing, clear division with subtle gradient on dark background`,
     content: {
       title: 'Remotionにおけるコード生成規約',
       leftColumn: {
@@ -411,6 +428,7 @@ export const SLIDES: Slide[] = [
     type: 'codeBlock',
     section: 5,
     durationInFrames: 1050, // 35s
+    imagePrompt: `animated code editor interface with frame counter display and sine wave visualization, Remotion-style timeline at bottom, red and dark aesthetic, cinematic programming environment`,
     content: {
       title: 'フレームベースのアニメーション例',
       code: {
@@ -439,6 +457,7 @@ const scale = spring({
     type: 'sectionHeader',
     section: 6,
     durationInFrames: 300, // 10s
+    imagePrompt: `network of AI agent nodes communicating via cyan glowing data streams, orchestration visualization with central coordinator node, distributed system aesthetic on dark background`,
     content: {
       title: 'サブエージェントと\nチームオーケストレーション',
       subtitle: 'コンテキスト汚染の解決策',
@@ -453,6 +472,7 @@ const scale = spring({
     type: 'bullets',
     section: 6,
     durationInFrames: 1200, // 40s
+    imagePrompt: `context isolation visualization, main thread bubble and isolated subagent bubble running in parallel containers, cyan glowing boundaries separating processes, clean dark background`,
     content: {
       title: 'サブエージェントによるタスク分離',
       bullets: [
@@ -474,6 +494,7 @@ const scale = spring({
     type: 'table',
     section: 6,
     durationInFrames: 1200, // 40s
+    imagePrompt: `team organization chart with AI agent role nodes, lead node at top connecting to specialist nodes below, cyan and teal hierarchical network diagram on dark background`,
     content: {
       title: 'エージェントチームの役割分担',
       table: {
@@ -499,6 +520,7 @@ const scale = spring({
     type: 'sectionHeader',
     section: 7,
     durationInFrames: 300, // 10s
+    imagePrompt: `information flow diagram with write isolate select compress filter stages, data flowing through funnel-shaped pipeline, purple-violet glowing stages on dark background, abstract engineering visualization`,
     content: {
       title: 'コンテキスト・エンジニアリング',
       subtitle: 'WISCフレームワーク',
@@ -513,6 +535,7 @@ const scale = spring({
     type: 'bullets',
     section: 7,
     durationInFrames: 1500, // 50s
+    imagePrompt: `four principle blocks W I S C arranged in circular cycle with connecting arrows, Write Isolate Select Compress glowing in purple-violet, minimalist framework diagram on dark background`,
     content: {
       title: 'WISCフレームワークの四原則',
       bullets: [
@@ -537,6 +560,7 @@ const scale = spring({
     type: 'sectionHeader',
     section: 8,
     durationInFrames: 300, // 10s
+    imagePrompt: `shield with verification checkmarks and multiple security layers glowing in pink-rose, trust system visualization with concentric protection rings, reliability aesthetic on dark background`,
     content: {
       title: '信頼性の担保',
       subtitle: 'ハルシネーションの抑制',
@@ -551,6 +575,7 @@ const scale = spring({
     type: 'bullets',
     section: 8,
     durationInFrames: 1500, // 50s
+    imagePrompt: `two-stage verification pipeline visualization, unit test results feeding into adversarial review stage, pink-rose glowing gates with checkmarks and X marks, dark background with quality assurance aesthetic`,
     content: {
       title: '決定論的検証と敵対的レビュー',
       bullets: [
@@ -575,6 +600,7 @@ const scale = spring({
     type: 'sectionHeader',
     section: 9,
     durationInFrames: 300, // 10s
+    imagePrompt: `human hand and AI holographic hand reaching toward each other in a digital space, collaborative partnership visualization, warm blue and white light, hopeful future aesthetic on dark background`,
     content: {
       title: '戦略的結論',
       subtitle: '人間とエージェントの協調モデル',
@@ -589,6 +615,7 @@ const scale = spring({
     type: 'bullets',
     section: 9,
     durationInFrames: 1500, // 50s
+    imagePrompt: `paradigm shift timeline visualization, evolution from code-writer to instruction-designer role, ascending path with glowing milestone markers, blue gradient future horizon on dark background`,
     content: {
       title: '新しいパラダイムの鍵',
       bullets: [
@@ -610,6 +637,7 @@ const scale = spring({
     type: 'title',
     section: 9,
     durationInFrames: 540, // 18s
+    imagePrompt: `starfield with glowing collaborative future cityscape silhouette, warm appreciation atmosphere, blue and gold tones, cinematic widescreen ending card aesthetic on deep dark background`,
     content: {
       title: 'ご視聴ありがとうございました',
       subtitle: 'Claude Code — エージェント型開発の未来',
