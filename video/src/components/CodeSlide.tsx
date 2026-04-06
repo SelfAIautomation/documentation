@@ -27,13 +27,13 @@ export const CodeSlide: React.FC<CodeSlideProps> = ({
 }) => {
   const frame = useCurrentFrame();
 
-  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
+  const titleOpacity = interpolate(frame, [0, 12], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const codeOpacity = interpolate(frame, [10, 30], [0, 1], {
+  const codeOpacity = interpolate(frame, [6, 18], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const codeY = interpolate(frame, [10, 30], [20, 0], {
+  const codeY = interpolate(frame, [6, 18], [15, 0], {
     extrapolateRight: 'clamp',
   });
 
@@ -100,10 +100,10 @@ export const CodeSlide: React.FC<CodeSlideProps> = ({
                 }}
               >
                 {tokens.map((line, i) => {
-                  const lineDelay = 20 + i * 4;
+                  const lineDelay = 8 + i * 2;
                   const lineOpacity = interpolate(
                     frame,
-                    [lineDelay, lineDelay + 10],
+                    [lineDelay, lineDelay + 6],
                     [0, 1],
                     {extrapolateRight: 'clamp'},
                   );

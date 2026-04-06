@@ -28,19 +28,19 @@ export const QuoteSlide: React.FC<QuoteSlideProps> = ({
   const {fps} = useVideoConfig();
 
   const quoteMarkScale = spring({frame, fps, config: {damping: 14, mass: 0.9}});
-  const quoteOpacity = interpolate(frame, [15, 40], [0, 1], {
+  const quoteOpacity = interpolate(frame, [8, 20], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const quoteY = interpolate(frame, [15, 40], [30, 0], {
+  const quoteY = interpolate(frame, [8, 20], [20, 0], {
     extrapolateRight: 'clamp',
   });
-  const authorOpacity = interpolate(frame, [40, 60], [0, 1], {
+  const authorOpacity = interpolate(frame, [18, 28], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const lineWidth = interpolate(frame, [5, 35], [0, 80], {
+  const lineWidth = interpolate(frame, [3, 18], [0, 80], {
     extrapolateRight: 'clamp',
   });
-  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
+  const titleOpacity = interpolate(frame, [0, 12], [0, 1], {
     extrapolateRight: 'clamp',
   });
 

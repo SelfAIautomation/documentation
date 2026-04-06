@@ -23,7 +23,7 @@ export const SlideLayout: React.FC<SlideLayoutProps> = ({
   totalSlides,
 }) => {
   const frame = useCurrentFrame();
-  const fadeIn = interpolate(frame, [0, 20], [0, 1], {
+  const fadeIn = interpolate(frame, [0, 12], [0, 1], {
     extrapolateRight: 'clamp',
   });
 

@@ -32,7 +32,7 @@ export const TwoColumnSlide: React.FC<TwoColumnSlideProps> = ({
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
-  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
+  const titleOpacity = interpolate(frame, [0, 12], [0, 1], {
     extrapolateRight: 'clamp',
   });
 
@@ -42,17 +42,17 @@ export const TwoColumnSlide: React.FC<TwoColumnSlideProps> = ({
     bgColor: string,
     textColor: string,
   ) => {
-    const baseDelay = side === 'left' ? 10 : 20;
+    const baseDelay = side === 'left' ? 5 : 10;
     const colOpacity = interpolate(
       frame,
-      [baseDelay, baseDelay + 15],
+      [baseDelay, baseDelay + 8],
       [0, 1],
       {extrapolateRight: 'clamp'},
     );
     const colX = interpolate(
       frame,
-      [baseDelay, baseDelay + 15],
-      [side === 'left' ? -30 : 30, 0],
+      [baseDelay, baseDelay + 8],
+      [side === 'left' ? -20 : 20, 0],
       {extrapolateRight: 'clamp'},
     );
 
@@ -80,10 +80,10 @@ export const TwoColumnSlide: React.FC<TwoColumnSlideProps> = ({
           {column.heading}
         </div>
         {column.items.map((item, i) => {
-          const itemDelay = baseDelay + 15 + i * 10;
+          const itemDelay = baseDelay + 8 + i * 4;
           const itemOpacity = interpolate(
             frame,
-            [itemDelay, itemDelay + 10],
+            [itemDelay, itemDelay + 6],
             [0, 1],
             {extrapolateRight: 'clamp'},
           );

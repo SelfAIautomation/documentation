@@ -32,13 +32,13 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
   const {fps} = useVideoConfig();
 
   const titleScale = spring({frame, fps, config: {damping: 15, mass: 0.8}});
-  const titleOpacity = interpolate(frame, [0, 25], [0, 1], {
+  const titleOpacity = interpolate(frame, [0, 15], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const subtitleOpacity = interpolate(frame, [20, 45], [0, 1], {
+  const subtitleOpacity = interpolate(frame, [10, 22], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const subtitleY = interpolate(frame, [20, 45], [30, 0], {
+  const subtitleY = interpolate(frame, [10, 22], [20, 0], {
     extrapolateRight: 'clamp',
   });
 
@@ -80,7 +80,7 @@ export const TitleSlide: React.FC<TitleSlideProps> = ({
         {/* Accent line */}
         <div
           style={{
-            width: interpolate(frame, [0, 30], [0, 120], {
+            width: interpolate(frame, [0, 18], [0, 120], {
               extrapolateRight: 'clamp',
             }),
             height: 4,

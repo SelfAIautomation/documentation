@@ -36,16 +36,16 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   const {fps} = useVideoConfig();
 
   const numberScale = spring({frame, fps, config: {damping: 12}});
-  const lineWidth = interpolate(frame, [10, 40], [0, 300], {
+  const lineWidth = interpolate(frame, [5, 18], [0, 300], {
     extrapolateRight: 'clamp',
   });
-  const titleOpacity = interpolate(frame, [15, 35], [0, 1], {
+  const titleOpacity = interpolate(frame, [8, 20], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const titleX = interpolate(frame, [15, 35], [-40, 0], {
+  const titleX = interpolate(frame, [8, 20], [-30, 0], {
     extrapolateRight: 'clamp',
   });
-  const subtitleOpacity = interpolate(frame, [30, 50], [0, 1], {
+  const subtitleOpacity = interpolate(frame, [15, 26], [0, 1], {
     extrapolateRight: 'clamp',
   });
 

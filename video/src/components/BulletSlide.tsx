@@ -25,7 +25,7 @@ export const BulletSlide: React.FC<BulletSlideProps> = ({
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
-  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
+  const titleOpacity = interpolate(frame, [0, 12], [0, 1], {
     extrapolateRight: 'clamp',
   });
 
@@ -55,17 +55,17 @@ export const BulletSlide: React.FC<BulletSlideProps> = ({
       {/* Bullets */}
       <div style={{display: 'flex', flexDirection: 'column', gap: 20}}>
         {bullets.map((bullet, i) => {
-          const delay = 15 + i * 12;
-          const bulletOpacity = interpolate(frame, [delay, delay + 15], [0, 1], {
+          const delay = 5 + i * 5;
+          const bulletOpacity = interpolate(frame, [delay, delay + 8], [0, 1], {
             extrapolateRight: 'clamp',
           });
-          const bulletX = interpolate(frame, [delay, delay + 15], [40, 0], {
+          const bulletX = interpolate(frame, [delay, delay + 8], [30, 0], {
             extrapolateRight: 'clamp',
           });
           const dotScale = spring({
             frame: Math.max(0, frame - delay),
             fps,
-            config: {damping: 10, mass: 0.5},
+            config: {damping: 12, mass: 0.4},
           });
 
           return (

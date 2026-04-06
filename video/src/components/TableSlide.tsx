@@ -27,10 +27,10 @@ export const TableSlide: React.FC<TableSlideProps> = ({
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
 
-  const titleOpacity = interpolate(frame, [0, 20], [0, 1], {
+  const titleOpacity = interpolate(frame, [0, 12], [0, 1], {
     extrapolateRight: 'clamp',
   });
-  const tableOpacity = interpolate(frame, [10, 25], [0, 1], {
+  const tableOpacity = interpolate(frame, [6, 16], [0, 1], {
     extrapolateRight: 'clamp',
   });
 
@@ -94,17 +94,17 @@ export const TableSlide: React.FC<TableSlideProps> = ({
 
         {/* Data rows */}
         {rows.map((row, rowIndex) => {
-          const rowDelay = 20 + rowIndex * 10;
+          const rowDelay = 8 + rowIndex * 5;
           const rowOpacity = interpolate(
             frame,
-            [rowDelay, rowDelay + 12],
+            [rowDelay, rowDelay + 7],
             [0, 1],
             {extrapolateRight: 'clamp'},
           );
           const rowX = interpolate(
             frame,
-            [rowDelay, rowDelay + 12],
-            [20, 0],
+            [rowDelay, rowDelay + 7],
+            [15, 0],
             {extrapolateRight: 'clamp'},
           );
 
